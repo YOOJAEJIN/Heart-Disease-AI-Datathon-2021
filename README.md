@@ -75,7 +75,7 @@ class ResNet(nn.Module):
   * opt : Optimizer로 adaptive moment estimation (ADAM) 사용
   * Lr_scheduler : learning rate scheduler로, 학습이 진행되지 않을 경우 learning rate를 줄이는데 사용
   * path2weights : 학습 epoch 당 모델의 weight을 저장하기 위한 경로
-  * path2weights : 모델의 테스트를 진행할 때 모델의 weight을 불러오기 위한 경로  
+  * path3weights : 모델의 테스트를 진행할 때 모델의 weight을 불러오기 위한 경로  
   * epoch : 학습 epoch 횟수
 ```Python
 model = ResNet(BasicBlock, [3, 4, 6, 3]).to(device)
