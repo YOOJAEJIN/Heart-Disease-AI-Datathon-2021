@@ -108,7 +108,8 @@ import xmltodict
 import array
 import numpy as np
 ```
-우선 xml 형태의 원본 데이터가 저장된 경로를 지정합니다. train_abnormal_dir, train_normal_dir, val_abnormal_dir, val_normal_dir은 각각 부정맥 학습 데이터, 정상 학습 데이터, 부정맥 검증 데이터, 정상 검증 데이터가 있는 폴더 경로입니다. 그리고 npy 파일로 바뀌어 저장이 가능한 폴더를 생성하여 경로(train_abnormal_dir_save,  train_normal_dir_save, val_abnormal_dir_save, val_normal_dir_save)를 지정합니다. 
+우선 xml 형태의 원본 데이터가 저장된 경로를 지정합니다. train_abnormal_dir, train_normal_dir, val_abnormal_dir, val_normal_dir은 각각 부정맥 학습 데이터, 정상 학습 데이터, 부정맥 검증 데이터, 정상 검증 데이터가 있는 폴더 경로입니다. 그리고 npy 파일로 바뀌어 저장이 가능한 폴더를 생성하여 경로(train_abnormal_dir_save,  train_normal_dir_save, val_abnormal_dir_save, val_normal_dir_save)를 지정합니다. 테스트를 수행할 경우 학습과 검증 데이터 경로 대신, 부정맥 테스트 데이터와 정상 테스트 데이터가 포함된 경로를 각각 설정해주어 전처리를 진행하면 됩니다. 학습시 6으로 시작하는 폴더 내의 데이터는 12-leads ECG 데이터 셋이지만, 5와 8로 시작되는 폴더와 데이터 형태를 맞춰주기 위해 8-leads 데이터 셋만 사용했습니다. 
+
 ```Python
 #raw data
 train_abnormal_dir = 'C:/Users/SPS/Desktop/심전도 공모전/electrocardiogram/data/train/arrhythmia/'
@@ -122,8 +123,9 @@ train_normal_dir_save = 'C:/Users/SPS/Desktop/심전도 공모전/preprocessing/
 val_abnormal_dir_save = 'C:/Users/SPS/Desktop/심전도 공모전/preprocessing/validation/arrhythmia/'
 val_normal_dir_save = 'C:/Users/SPS/Desktop/심전도 공모전/preprocessing/validation/normal/'
 ```
-#### 1) 전처리_2.py 실행
-두번째 전처리 단계는 전처리_2.py 파일을 실행함으로써 가능하며 부정맥 학습 데이터, 정상 학습 데이터, 부정맥 검증 데이터, 정상 검증 데이터들을 하나의 npy파일로 통합해주는 단계입니다. 이 파일을 실행하기 위해서는 다음과 같은 파이썬 라이브러리가 필요합니다.
+#### 2) 전처리_2.py 실행
+두번째 전처리 단계는 전처리_2.py 파일을 실행함으로써 가능하며 부정맥 학습 데이터, 정상 학습 데이터, 부정맥 검증 데이터, 정상 검증 데이터들을 하나의 npy파일로 통합해주는 단계입니다. 이 파일을 실행하기 위해서는 다음과 같은 파이썬 라이브러리가 필요합니다. 테스트를 수행할 경우 학습과 검증 데이터 경로 대신 부정맥 테스트 데이터와 정상 테스트 데이터가 포함된 경로를 각각 설정해주어 전처리를 진행하면 됩니다.
+
 ```Python
 import os
 import numpy as np
